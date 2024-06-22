@@ -5,6 +5,7 @@ const sFuncao = document.querySelector('#m-funcao');
 const sSalario = document.querySelector('#m-salario');
 const sContrato = document.querySelector('#m-contrato');
 const btnSalvar = document.querySelector('#btnSalvar');
+const searchInput = document.querySelector('#searchInput');
 
 let itens = [];
 let id;
@@ -94,6 +95,18 @@ function loadItens() {
   itens = getItensBD();
   tbody.innerHTML = '';
   itens.forEach((item, index) => {
+    insertItem(item, index);
+  });
+}
+
+function filterTable() {
+  const searchText = searchInput.value.toLowerCase();
+  const filteredItens = itens.filter(item =>
+    item.nome.toLowerCase().includes(searchText)
+  );
+
+  tbody.innerHTML = '';
+  filteredItens.forEach((item, index) => {
     insertItem(item, index);
   });
 }

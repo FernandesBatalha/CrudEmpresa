@@ -32,13 +32,21 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto 12px;
+  padding: 0 12px; /* Ajuste o padding para espaçamento interno */
 }
 
 .header span {
   font-weight: 900;
   font-size: 20px;
   word-break: break-all;
+}
+
+#searchInput {
+  padding: 8px; /* Ajuste o padding do input para alinhamento vertical com o botão */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; /* Espaçamento entre o input e o botão */
+  width: 300px; /* Ajuste a largura conforme necessário */
 }
 
 #new {
@@ -108,6 +116,21 @@ tbody tr td.acao {
 }
 
 @media (max-width: 700px) {
+  .header {
+    flex-direction: column; /* Altera para coluna em telas menores */
+    align-items: flex-start; /* Alinha itens à esquerda */
+    padding: 12px; /* Aumenta o padding para melhor espaçamento */
+  }
+
+  #searchInput {
+    margin-bottom: 10px; /* Espaçamento entre o input e o título */
+    width: calc(100% - 20px); /* Calcula a largura do input para ocupar o espaço disponível */
+  }
+
+  #new {
+    width: calc(100% - 20px); /* Calcula a largura do botão para ocupar o espaço disponível */
+  }
+
   body {
     font-size: 10px;
   }
